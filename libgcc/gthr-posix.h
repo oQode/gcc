@@ -59,7 +59,6 @@ typedef struct timespec __gthread_time_t;
    in gthr.h for details. */
 #define __GTHREAD_HAS_COND	1
 
-#define __GTHREAD_MUTEX_INIT PTHREAD_MUTEX_INITIALIZER
 #define __GTHREAD_MUTEX_INIT_FUNCTION __gthread_mutex_init_function
 #ifndef __cplusplus
 #define __GTHREAD_RWLOCK_INIT PTHREAD_RWLOCK_INITIALIZER
