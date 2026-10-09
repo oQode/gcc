@@ -515,7 +515,7 @@ multi-do:
 	      if [ -d ../$${dir}/$${lib} ]; then \
 		flags=`echo $$i | sed -e 's/^[^;]*;//' -e 's/@/ -/g'`; \
 		cxxflags='$${flags}'; \
-		case "$$i" in *@Os*) cxxflags="$${flags} -fno-exceptions -fno-asynchronous-unwind-tables"; ;; esac ; \
+		case "$$i" in *@Os*) cxxflags="$${flags} -fno-asynchronous-unwind-tables"; ;; esac ; \
 		if (cd ../$${dir}/$${lib}; $(MAKE) $(FLAGS_TO_PASS) \
 				CFLAGS="$(CFLAGS) $${flags}" \
 				CCASFLAGS="$(CCASFLAGS) $${flags}" \
