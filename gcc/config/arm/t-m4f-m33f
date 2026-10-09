@@ -1,0 +1,32 @@
+# Copyright (C) 2016-2024 Free Software Foundation, Inc.
+#
+# This file is part of GCC.
+#
+# GCC is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3, or (at your option)
+# any later version.
+#
+# GCC is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GCC; see the file COPYING3.  If not see
+# <http://www.gnu.org/licenses/>.
+
+# Subset of the rmprofile multilibs for --with-multilib-list=@t-m4f-m33f:
+# Cortex-M4F and Cortex-M33F with hard float only (nRF52840, nRF54L15).
+# Directory names and option matching are the same as with rmprofile.
+# Other CPUs fall back to the default multilib.
+
+MULTILIB_OPTIONS	= mthumb march=armv7e-m+fp/march=armv8-m.main+fp mfloat-abi=hard
+MULTILIB_DIRNAMES	= thumb v7e-m+fp v8-m.main+fp hard
+
+MULTILIB_REQUIRED	= mthumb/march=armv7e-m+fp/mfloat-abi=hard
+MULTILIB_REQUIRED	+= mthumb/march=armv8-m.main+fp/mfloat-abi=hard
+
+MULTILIB_MATCHES	= march?armv7e-m+fp=march?armv7e-m+fpv5
+MULTILIB_MATCHES	+= march?armv8-m.main+fp=mlibarch?armv8-m.main+fp
+MULTILIB_MATCHES	+= march?armv8-m.main+fp=mlibarch?armv8-m.main+dsp+fp
