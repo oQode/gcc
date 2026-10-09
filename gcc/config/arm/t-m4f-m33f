@@ -21,12 +21,20 @@
 # Directory names and option matching are the same as with rmprofile.
 # Other CPUs fall back to the default multilib.
 
-MULTILIB_OPTIONS	= mthumb march=armv7e-m+fp/march=armv8-m.main+fp mfloat-abi=hard
-MULTILIB_DIRNAMES	= thumb v7e-m+fp v8-m.main+fp hard
+# Drop the multilibs of t-arm-elf, as t-multilib does.
+MULTILIB_OPTIONS	=
+MULTILIB_DIRNAMES	=
+MULTILIB_EXCEPTIONS	=
+MULTILIB_MATCHES	=
+MULTILIB_REUSE		=
+MULTILIB_REQUIRED	=
 
-MULTILIB_REQUIRED	= mthumb/march=armv7e-m+fp/mfloat-abi=hard
+MULTILIB_OPTIONS	+= mthumb march=armv7e-m+fp/march=armv8-m.main+fp mfloat-abi=hard
+MULTILIB_DIRNAMES	+= thumb v7e-m+fp v8-m.main+fp hard
+
+MULTILIB_REQUIRED	+= mthumb/march=armv7e-m+fp/mfloat-abi=hard
 MULTILIB_REQUIRED	+= mthumb/march=armv8-m.main+fp/mfloat-abi=hard
 
-MULTILIB_MATCHES	= march?armv7e-m+fp=march?armv7e-m+fpv5
+MULTILIB_MATCHES	+= march?armv7e-m+fp=march?armv7e-m+fpv5
 MULTILIB_MATCHES	+= march?armv8-m.main+fp=mlibarch?armv8-m.main+fp
 MULTILIB_MATCHES	+= march?armv8-m.main+fp=mlibarch?armv8-m.main+dsp+fp
