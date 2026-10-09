@@ -384,6 +384,9 @@ dnl # rather than hardcoding that information.
     AC_DEFINE(HAVE_MEMALIGN)
 
     case "${target}" in
+      arm*-zephyr-*)
+        AC_DEFINE(HAVE_TLS)
+        ;;
       *-rtems*)
         case "${target}" in
           bfin* | lm32* | mips* | moxie* | or1k* | v850*)

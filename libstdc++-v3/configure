@@ -28762,6 +28762,10 @@ _ACEOF
 
 
     case "${target}" in
+      arm*-zephyr-*)
+        $as_echo "#define HAVE_TLS 1" >>confdefs.h
+
+        ;;
       *-rtems*)
         case "${target}" in
           bfin* | lm32* | mips* | moxie* | or1k* | v850*)
