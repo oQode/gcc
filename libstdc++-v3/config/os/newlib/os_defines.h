@@ -58,4 +58,8 @@
 
 #endif
 
+// Zephyr links pthread functions statically: with weak references gthreads
+// would be silently inactive whenever pthread_cancel is not linked in.
+#define _GLIBCXX_GTHREAD_USE_WEAK 0
+
 #endif
