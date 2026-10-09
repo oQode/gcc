@@ -1762,6 +1762,15 @@ AC_DEFUN([GLIBCXX_ENABLE_LIBSTDCXX_TIME], [
 
   if test x"$enable_libstdcxx_time" = x"auto"; then
 
+    case "${target}" in
+      *-zephyr-*)
+        ac_has_clock_monotonic=yes
+        ac_has_clock_realtime=yes
+        ac_has_nanosleep=yes
+        ac_has_sched_yield=yes
+        ;;
+    esac
+
     case "${target_os}" in
       cygwin*)
         ac_has_nanosleep=yes
